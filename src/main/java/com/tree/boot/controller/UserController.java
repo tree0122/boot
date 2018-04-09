@@ -1,6 +1,6 @@
 package com.tree.boot.controller;
 
-import com.tree.boot.model.User;
+import com.tree.boot.domain.User;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 

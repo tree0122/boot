@@ -1,6 +1,5 @@
 package com.tree.boot.lombok;
 
-import org.junit.Test;
 
 /**
  *
@@ -17,7 +16,6 @@ import org.junit.Test;
  */
 public class TryUse {
 
-    @Test
     public void test1(){
         Example lucy = Example.builder()
                 .foo(1)

@@ -1,10 +1,9 @@
-package com.tree.boot.model;
+package com.tree.boot.domain;
 
 import lombok.Data;
 
 @Data
 public class User {
-
     private Integer id;
 
     private String name;
