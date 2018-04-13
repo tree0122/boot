@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <springProperty scope="context" name="ci.environment.slug" source="ci.environment.slug"
+                    defaultValue="local"/>
+    <springProperty scope="context" name="spring.application.name" source="spring.application.name"/>
+    <springProperty scope="context" name="spring.application.instance" source="spring.application.instance"
+                    defaultValue="0"/>
+
+    <!--<include url="http://configserver.${ci.environment.slug}.mobike.io/${spring.application.name}/default/master/logback-defaults.xml" />-->
+
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+    <include resource="org/springframework/boot/logging/logback/console-appender.xml"/>
+    <jmxConfigurator/>
+    <contextName>${spring.application.name}</contextName>
+    <property name="BASE_NAME" value="${ci.environment.slug}-${spring.application.name}-${spring.application.instance}" scope="context"/>
+    <appender name="ERROR-FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}/${BASE_NAME}.error</file>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_PATH}/${BASE_NAME}.%d{yyyy-MM-dd}.error</fileNamePattern>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+        </encoder>
+    </appender>
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}/${BASE_NAME}.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_PATH}/${BASE_NAME}.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+        </encoder>
+    </appender>
+
+    <springProfile name="debug">
+        <logger name="com.tree" level="DEBUG"/>
+    </springProfile>
+    
+    <logger name="com.tree.redis" level="WARN" />
+    
+    <root level="INFO">
+        <springProfile name="debug">
+            <appender-ref ref="CONSOLE"/>
+        </springProfile>
+        <appender-ref ref="CONSOLE" />
+        <!--<appender-ref ref="ERROR-FILE"/>-->
+        <!--<appender-ref ref="FILE"/>-->
+    </root>
+
+</configuration>
