@@ -10,8 +10,8 @@ import java.time.LocalDateTime;
 @RestController
 public class HelloWorldController {
 
-    @RequestMapping("hello")
-    public String hello(){
+    @RequestMapping("hello1")
+    public String hello1(){
         log.info("=== hello log date: {} ===", LocalDateTime.now());
         return "hello world";
     }
