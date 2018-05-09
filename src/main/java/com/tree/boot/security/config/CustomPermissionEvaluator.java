@@ -10,7 +10,7 @@ import java.io.Serializable;
 public class CustomPermissionEvaluator implements PermissionEvaluator{
     @Override
     public boolean hasPermission(Authentication authentication, Object targetDomainObject, Object permission) {
-        log.info("======== has permission ======");
+        log.info("auth: {}, target: {}, permission: {}", authentication, targetDomainObject, permission);
 
         return authentication.getAuthorities()
                 .stream()

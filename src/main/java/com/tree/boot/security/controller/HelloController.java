@@ -17,6 +17,7 @@ public class HelloController {
     }
 
     @RequestMapping("hello")
+    @PreAuthorize("hasRole('ADMIN')")
     public String hello(){
         return "hello";
     }

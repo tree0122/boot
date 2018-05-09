@@ -13,7 +13,7 @@ public class UserService {
                 .id(10)
                 .password(username)
                 .userName(username)
-                .roles(Lists.newArrayList("ADMIN", "GUEST"))
+                .roles(Lists.newArrayList("ROLE_ADMIN", "ROLE_GUEST"))
                 .build();
     }
 }
