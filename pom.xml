@@ -74,7 +74,6 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -85,6 +84,25 @@
 			<artifactId>spring-boot-devtools</artifactId>
 			<optional>true</optional>
 		</dependency>
+		<!--<dependency>
+			<groupId>io.netty</groupId>
+			<artifactId>netty-transport</artifactId>
+			<version>4.1.14.Final</version>
+		</dependency>-->
+		<!-- https://mvnrepository.com/artifact/io.netty/netty-example -->
+		<dependency>
+			<groupId>io.netty</groupId>
+			<artifactId>netty-example</artifactId>
+			<version>4.1.25.Final</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/io.netty/netty-all -->
+		<dependency>
+			<groupId>io.netty</groupId>
+			<artifactId>netty-all</artifactId>
+			<version>4.1.25.Final</version>
+		</dependency>
+
+
 	</dependencies>
 
 	<build>
