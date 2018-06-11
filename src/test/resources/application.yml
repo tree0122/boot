@@ -8,7 +8,7 @@ ci:
     slug: alpha
 spring:
   application:
-    name: @project.artifactId@
+    name: boot
     instance: 0
 
 logging:
