@@ -14,7 +14,22 @@ public class IndexTest {
     private Index index;
 
     @Test
-    public void test1(){
-        index.request();
+    public void put(){
+        index.put();
+    }
+
+    @Test
+    public void get(){
+        index.get();
+    }
+
+    @Test
+    public void del(){
+        index.del();
+    }
+
+    @Test
+    public void delByQuery(){
+        index.delByQuery();
     }
 }
