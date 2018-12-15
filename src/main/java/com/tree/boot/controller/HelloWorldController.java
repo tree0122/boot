@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 public class HelloWorldController {
 
     @RequestMapping("hello1")
-    public String hello1(){
+    public String hello1() {
         log.info("=== hello log date: {} ===", LocalDateTime.now());
         return "hello world";
     }

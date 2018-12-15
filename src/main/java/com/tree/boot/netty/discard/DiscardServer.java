@@ -23,7 +23,7 @@ public class DiscardServer {
         EventLoopGroup boss = new NioEventLoopGroup();
         EventLoopGroup worker = new NioEventLoopGroup();
 
-        try{
+        try {
             ServerBootstrap bootstrap = new ServerBootstrap();
             bootstrap.group(boss, worker)
                     .channel(NioServerSocketChannel.class)
@@ -39,7 +39,7 @@ public class DiscardServer {
             ChannelFuture future = bootstrap.bind(port).sync();
 
             future.channel().closeFuture().sync();
-        }finally {
+        } finally {
             worker.shutdownGracefully();
             boss.shutdownGracefully();
         }

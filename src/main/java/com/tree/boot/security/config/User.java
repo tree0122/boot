@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 
 @Data
 @Builder
-public class User implements UserDetails{
+public class User implements UserDetails {
     private Integer id;
 
     private String userName;

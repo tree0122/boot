@@ -22,7 +22,7 @@ public class AsyncController {
     private AsyncService asyncService;
 
     @RequestMapping("call")
-    public Callable<String> call(HttpServletRequest request, HttpServletResponse response){
+    public Callable<String> call(HttpServletRequest request, HttpServletResponse response) {
         String sessionId = request.getSession().getId();
 
 //        AsyncContext asyncContext = request.getAsyncContext();
@@ -35,7 +35,7 @@ public class AsyncController {
     }
 
     @RequestMapping("defer")
-    public DeferredResult<String> defer(HttpServletRequest request, HttpServletResponse response){
+    public DeferredResult<String> defer(HttpServletRequest request, HttpServletResponse response) {
         Cookie[] cookies = request.getCookies();
 
         String time = request.getParameter("time");

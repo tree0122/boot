@@ -7,7 +7,7 @@ import org.springframework.security.core.Authentication;
 import java.io.Serializable;
 
 @Slf4j
-public class CustomPermissionEvaluator implements PermissionEvaluator{
+public class CustomPermissionEvaluator implements PermissionEvaluator {
     @Override
     public boolean hasPermission(Authentication authentication, Object targetDomainObject, Object permission) {
         log.info("auth: {}, target: {}, permission: {}", authentication, targetDomainObject, permission);

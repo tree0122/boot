@@ -6,22 +6,24 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.statemachine.StateMachine;
 
 @SpringBootApplication
-public class BootApplication implements CommandLineRunner{
+@EnableAspectJAutoProxy
+public class BootApplication implements CommandLineRunner {
 
-	@Autowired
-	private StateMachine<State, Event> stateMachine;
+    @Autowired
+    private StateMachine<State, Event> stateMachine;
 
-	public static void main(String[] args) {
-		SpringApplication.run(BootApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(BootApplication.class, args);
+    }
 
-	@Override
-	public void run(String... args) throws Exception {
-		stateMachine.start();
-		stateMachine.sendEvent(Event.PAY);
-		stateMachine.sendEvent(Event.RECEIVE);
-	}
+    @Override
+    public void run(String... args) throws Exception {
+        stateMachine.start();
+        stateMachine.sendEvent(Event.PAY);
+        stateMachine.sendEvent(Event.RECEIVE);
+    }
 }

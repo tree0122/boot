@@ -12,14 +12,14 @@ import java.io.IOException;
 @Configuration
 public class WebConfig {
     @Bean
-    public RemoteIpFilter remoteIpFilter(){
+    public RemoteIpFilter remoteIpFilter() {
         return new RemoteIpFilter();
     }
 
     @Bean
-    public FilterRegistrationBean filterRegistrationBean(){
+    public FilterRegistrationBean filterRegistrationBean() {
         FilterRegistrationBean registration = new FilterRegistrationBean();
-        registration.setFilter( new MyFilter());
+        registration.setFilter(new MyFilter());
         registration.addUrlPatterns("/*");
         registration.addInitParameter("paramName", "paramValue");
         registration.setName("myFilter");
@@ -27,7 +27,7 @@ public class WebConfig {
         return registration;
     }
 
-    public class MyFilter implements Filter{
+    public class MyFilter implements Filter {
 
         @Override
         public void init(FilterConfig filterConfig) throws ServletException {

@@ -10,7 +10,7 @@ import java.util.concurrent.Callable;
 @Slf4j
 public class AsyncService {
 
-    public Callable<String> getById(String id){
+    public Callable<String> getById(String id) {
         try {
             log.info("threadId: {}, id is: {}", Thread.currentThread().getId(), id);
             Thread.sleep(5000);
@@ -24,17 +24,17 @@ public class AsyncService {
             };
 
         } catch (InterruptedException e) {
-            log.error("error,  exception :" , e);
+            log.error("error,  exception :", e);
         }
         return null;
     }
 
 
-    public DeferredResult<String> getByCookie(Integer time){
+    public DeferredResult<String> getByCookie(Integer time) {
         DeferredResult<String> result = new DeferredResult<>(5000L);
         log.info("deferredResult 开始, threadId: {}", Thread.currentThread().getId());
 
-        result.onTimeout( () -> {
+        result.onTimeout(() -> {
             log.info("deferredResult 超时, threadId: {}", Thread.currentThread().getId());
             result.setResult("timeout");
         });

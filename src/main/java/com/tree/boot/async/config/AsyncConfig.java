@@ -21,13 +21,13 @@ public class AsyncConfig implements ApplicationContextAware, BeanFactoryAware {
     private BeanFactory beanFactory;
 
     @PostConstruct
-    public void init(){
+    public void init() {
         WebMvcAutoConfiguration.WebMvcAutoConfigurationAdapter bean = applicationContext.getBean(WebMvcAutoConfiguration.WebMvcAutoConfigurationAdapter.class);
         bean.configureAsyncSupport(asyncSupportConfigurer());
     }
 
     @Bean
-    public AsyncSupportConfigurer asyncSupportConfigurer(){
+    public AsyncSupportConfigurer asyncSupportConfigurer() {
         AsyncSupportConfigurer configurer = new AsyncSupportConfigurer();
         configurer.setDefaultTimeout(30 * 1000)
                 .setTaskExecutor(new SimpleAsyncTaskExecutor());

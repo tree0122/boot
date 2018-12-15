@@ -10,7 +10,7 @@ import java.util.EnumSet;
 
 @Configuration
 @EnableStateMachine
-public class StateMachineConfig extends EnumStateMachineConfigurerAdapter<State, Event>{
+public class StateMachineConfig extends EnumStateMachineConfigurerAdapter<State, Event> {
 
     @Override
     public void configure(StateMachineStateConfigurer<State, Event> stateConfigurer) throws Exception {

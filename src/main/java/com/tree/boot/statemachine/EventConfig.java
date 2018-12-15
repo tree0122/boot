@@ -11,7 +11,7 @@ import org.springframework.statemachine.annotation.WithStateMachine;
 public class EventConfig {
 
     @OnTransition(target = "UNPAID")
-    public void create(){
+    public void create() {
         log.info("订单创建，待支付");
     }
 

@@ -14,7 +14,7 @@ public class DateUtil {
      *
      * @return
      */
-    public static Long epochMilli(){
+    public static Long epochMilli() {
         return Instant.now().toEpochMilli();
     }
 
@@ -23,7 +23,7 @@ public class DateUtil {
      *
      * @return
      */
-    public static Long epochSecond(){
+    public static Long epochSecond() {
         return Instant.now().getEpochSecond();
     }
 
@@ -35,7 +35,7 @@ public class DateUtil {
      * @param timeZoneOffset
      * @return
      */
-    public static String format(Long milli, String format, Integer timeZoneOffset){
+    public static String format(Long milli, String format, Integer timeZoneOffset) {
         Assert.notNull(milli, "milli is null");
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern(format);
         return formatter.format(LocalDateTime.ofInstant(Instant.ofEpochMilli(milli),
@@ -50,7 +50,7 @@ public class DateUtil {
      * @param timeZoneOffset
      * @return
      */
-    public static Long milli(String time, String format, Integer timeZoneOffset){
+    public static Long milli(String time, String format, Integer timeZoneOffset) {
         Assert.notNull(time, "time is null");
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern(format);
         LocalDateTime parse = LocalDateTime.parse(time, formatter);

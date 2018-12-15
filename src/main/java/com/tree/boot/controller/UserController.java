@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
 
     @RequestMapping("get")
-    public User get(){
+    public User get() {
         User user = new User();
         user.setId(1);
         user.setName("Lucy");

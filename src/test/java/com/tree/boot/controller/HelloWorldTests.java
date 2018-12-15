@@ -22,7 +22,7 @@ public class HelloWorldTests {
     private MockMvc mockMvc;
 
     @Before
-    public void setup(){
+    public void setup() {
         mockMvc = MockMvcBuilders.standaloneSetup(new HelloWorldController()).build();
     }
 

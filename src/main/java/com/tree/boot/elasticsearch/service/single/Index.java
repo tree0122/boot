@@ -41,7 +41,7 @@ public class Index {
     @Autowired
     private RestHighLevelClient restHighLevelClient;
 
-    public void restHigh(){
+    public void restHigh() {
         IndexRequest request = new IndexRequest("posts", "doc", "1");
         String json = json();
         request.source(json, XContentType.JSON);
@@ -51,7 +51,7 @@ public class Index {
         log.info("response: {}", response);
     }
 
-    public void put(){
+    public void put() {
         IndexResponse response = client.prepareIndex("twitter", "tweet", "3")
                 .setSource(esHelper())
                 .get();
@@ -59,7 +59,7 @@ public class Index {
 
     }
 
-    public void get(){
+    public void get() {
         GetResponse response = client.prepareGet("twitter", "tweet", "2")
                 .get();
         Map<String, Object> map = response.getSourceAsMap();
@@ -67,14 +67,14 @@ public class Index {
         log.info("map: {}", map);
     }
 
-    public void del(){
+    public void del() {
         DeleteResponse response = client.prepareDelete("twitter", "tweet", "2")
                 .get();
 
         log.info("response: {}", response);
     }
 
-    public long delByQuery(){
+    public long delByQuery() {
 //        QueryBuilders.
 //        AggregationBuilders.geoBounds("1").
         BulkByScrollResponse response = DeleteByQueryAction.INSTANCE
@@ -88,7 +88,7 @@ public class Index {
         return response.getDeleted();
     }
 
-    private String json(){
+    private String json() {
         String json = "{" +
                 "\"user\":\"kimchy\"," +
                 "\"postDate\":\"2013-01-30\"," +
@@ -97,28 +97,28 @@ public class Index {
         return json;
     }
 
-    private Map map(){
+    private Map map() {
         HashMap<Object, Object> map = Maps.newHashMap();
-        map.put("user","kimchy");
-        map.put("postDate",new Date());
-        map.put("message","trying out Elasticsearch");
+        map.put("user", "kimchy");
+        map.put("postDate", new Date());
+        map.put("message", "trying out Elasticsearch");
         return map;
     }
 
     // todo
-    private byte[] serializeObj(){
+    private byte[] serializeObj() {
 //        JSON.toJSONBytes();
         return null;
     }
 
-    private XContentBuilder esHelper(){
+    private XContentBuilder esHelper() {
         XContentBuilder builder = null;
         try {
             builder = XContentFactory.jsonBuilder()
                     .startObject()
-                        .field("user", "kimchy")
-                        .field("postDate", new Date())
-                        .field("message", "trying out Elasticsearch")
+                    .field("user", "kimchy")
+                    .field("postDate", new Date())
+                    .field("message", "trying out Elasticsearch")
                     .endObject();
         } catch (IOException e) {
             log.error("es helper error");

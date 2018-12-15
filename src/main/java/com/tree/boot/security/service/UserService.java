@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserService {
 
-    public User getByUsername(String username){
+    public User getByUsername(String username) {
         return User
                 .builder()
                 .id(10)

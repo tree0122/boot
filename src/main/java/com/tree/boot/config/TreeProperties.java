@@ -14,7 +14,7 @@ public class TreeProperties {
     private String sex;
 
     @PostConstruct
-    public void init(){
+    public void init() {
         System.out.println(name + "=====" + sex);
     }
 

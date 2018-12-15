@@ -12,13 +12,13 @@ import javax.servlet.http.HttpServletRequest;
 public class HelloController {
 
     @RequestMapping("/")
-    public String index(){
+    public String index() {
         return "index";
     }
 
     @RequestMapping("hello")
     @PreAuthorize("hasRole('ADMIN')")
-    public String hello(){
+    public String hello() {
         return "hello";
     }
 
@@ -29,7 +29,7 @@ public class HelloController {
 
     @RequestMapping("manage")
     @PreAuthorize("hasPermission('manage', '')")
-    public String manage(HttpServletRequest request){
+    public String manage(HttpServletRequest request) {
 
         UserDetails principal = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 

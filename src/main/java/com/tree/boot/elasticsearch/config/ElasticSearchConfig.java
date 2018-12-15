@@ -32,13 +32,13 @@ public class ElasticSearchConfig {
 
     /**
      * client
-     *
+     * <p>
      * https://www.elastic.co/guide/en/elasticsearch/client/java-api/6.0/java-docs-index.html
      *
      * @return
      */
     @Bean
-    public TransportClient transportClient(){
+    public TransportClient transportClient() {
         try {
             Settings settings = Settings.builder()
                     .put("cluster.name", clusterName)
@@ -56,13 +56,13 @@ public class ElasticSearchConfig {
 
     /**
      * rest client
-     *
+     * <p>
      * https://www.elastic.co/guide/en/elasticsearch/client/java-rest/6.0/java-rest-high-document-index.html
      *
      * @return
      */
     @Bean
-    public RestHighLevelClient restHighLevelClient(){
+    public RestHighLevelClient restHighLevelClient() {
         RestHighLevelClient highLevelClient = new RestHighLevelClient(
                 RestClient.builder(new HttpHost(host, port))
         );

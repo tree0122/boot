@@ -6,11 +6,11 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class BootMonitor{
+public class BootMonitor {
 
     @Bean
     @ExportMetricReader
-    public MyMetricReader myMetricReader(){
+    public MyMetricReader myMetricReader() {
         return new MyMetricReader();
     }
 
